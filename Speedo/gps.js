@@ -6,9 +6,7 @@ const accField = document.getElementById('acc');
 const altitudeField = document.getElementById('altitude');
 const headingField = document.getElementById('heading');
 
-positionField.innerHTML = "positionen er x NE y SW";
-speedField.innerHTML = "24 km/t";
-accField.innerHTML = "0";
+
 
 function resultfunc(position) {
     console.log("POS", position);
@@ -17,11 +15,11 @@ function resultfunc(position) {
         infoField.innerText = position;
     } else {
         infoField.innerText = "Position found";
-        positionField.innerHTML = position.coords.latitude + "N  " + position.coords.longitude + "E";
-        accField.innerHTML = position.coords.accuracy + " m";
-        altitudeField.innerHTML = position.coords.altitude + " (" + position.coords.altitudeAccuracy + " m)";
-        speedField.innerHTML = position.coords.speed;
-        heading.innerText = position.coords.heading;
+        positionField.innerHTML = position.coords.latitude.toFixed(5) + " N - " + position.coords.longitude.toFixed(5) + " E";
+        accField.innerHTML = position.coords.accuracy.toFixed(0) + " m";
+        altitudeField.innerHTML = position.coords.altitude.toFixed(0) + " m (" + position.coords.altitudeAccuracy.toFixed(0) + " m usikkerhed)";
+        speedField.innerHTML = (position.coords.speed / 1000 * 60 * 60).toFixed(0) + " km/t";
+        heading.innerText = position.coords.heading.toFixed(0) + "°";
         time = new Date(position.timestamp*1000);
         console.log("Time: " + time);
         }

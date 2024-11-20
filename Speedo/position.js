@@ -1,20 +1,17 @@
 function findLocation(resultfunc) {
-    // const status = document.querySelector("#status");
-    // const mapLink = document.querySelector("#map-link");
-
-    // mapLink.href = "";
-    // mapLink.textContent = "";
-
+    debug = false;
     function success(position) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
-        console.log("Position: " + latitude + " " + longitude + " accuracy:" + position.coords.accuracy);
-        console.log("Altitude: " + position.coords.altitude + " " + position.coords.altitudeAccuracy);
-        console.log("Heading: " +  position.coords.heading);
-        console.log("Speed: " +  position.coords.speed);
-        console.log("Time", position.timestamp)
-        date = new Date(position.timestamp*1000)
-        console.log(date)
+        if (debug) {
+            console.log("Position: " + latitude + " " + longitude + " accuracy:" + position.coords.accuracy);
+            console.log("Altitude: " + position.coords.altitude + " " + position.coords.altitudeAccuracy);
+            console.log("Heading: " +  position.coords.heading);
+            console.log("Speed: " +  position.coords.speed);
+            console.log("Time", position.timestamp)
+            date = new Date(position.timestamp*1000)
+            console.log(date)
+        }
         //resultfunc(latitude, longitude);
         resultfunc(position);
         return(position)
@@ -41,7 +38,7 @@ function findLocation(resultfunc) {
             navigator.geolocation.getCurrentPosition(success, error);
         }
     }
-    console.log("findlocation called");
+    //console.log("findlocation called");
     get_location();
-    console.log("return");
+    //console.log("return");
 }

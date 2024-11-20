@@ -1,40 +1,47 @@
 <!DOCTYPE html>
 <html lang="da-DK" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="shortcut icon" href="pic/gps.png" />
-    <link rel="stylesheet" href="speedo.css">
-    <title>Speedo</title>
-    <link rel="manifest" href="/Speedo/manifest.json">
-  </head>
-  <body>
-    <div id="page">
-    <h1>Speedo</h1>
-    <h3>Position</h3>
-    <p id="position">pos</p>
-    <h3>Speed</h3>
-    <p id="speed">speed</p>
-    <h3>Heading</h3>
-    <p id="heading">speed</p>
-    <h3>accuracity</h3>
-    <p id="acc">acc</p>
-    <h3>Altitude</h3>
-    <p id="altitude">altitude</p>
-    <h3>Info</h3>
-    <p id="info">info</p>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="shortcut icon" href="pic/gps.png" />
+  <link rel="stylesheet" href="speedo.css">
+  <title>Speedo</title>
+  <link rel="manifest" href="/Speedo/manifest.json">
+</head>
+
+<body>
+  <div id="page">
+    <h2>Speedo</h2>
+    <h4>Position</h4>
+    <p id="position">searching...</p>
+    <p>Nøjagtighed <span id="acc"></span></h4>
+      <p><a target="_blank"
+          href="https://www.google.com/maps/search/?api=1&map_action=map&zoom=7&query=56.0,9.4&basemap=terrain">Map</a>
+      </p>
+    <h4>Højde</h4>
+    <p id="altitude"></p>
+    <h4>Hastighed</h4>
+    <p id="speed"></p>
+    <h4>Retning</h4>
+    <p id="heading"></p>
+    <h4>Info</h4>
+    <p id="info"></p>
   </div>
- 
-  <script src="gps.js"></script>    
+
+  <script src="gps.js"></script>
   <script src="position.js"></script>
+  <script src="test_pwa.js"></script>
   <script>
+    document.getElementById('info').innerHTML = "Arbejder...";
     findLocation(resultfunc);
   </script>
-    <script>
-      if('serviceWorkerxxx' in navigator) {
-        console.log("Register service worker");
-        navigator.serviceWorker.register('/Speedo/sw.js', { scope: '/Speedo' });
-      }
-      </script>
-  </body>
+  <script>
+    if ('serviceWorkerxxx' in navigator) {
+      console.log("Register service worker");
+      navigator.serviceWorker.register('/Speedo/sw.js', { scope: '/Speedo' });
+    }
+  </script>
+</body>
+
 </html>
