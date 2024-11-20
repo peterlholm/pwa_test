@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="da-DK" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="pic/gps.png" />
+    <link rel="stylesheet" href="speedo.css">
+    <title>Speedo</title>
+    <link rel="manifest" href="/Speedo/manifest.json">
+  </head>
+  <body>
+    <div id="page">
+    <h1>Speedo</h1>
+    <h3>Position</h3>
+    <p id="position">pos</p>
+    <h3>Speed</h3>
+    <p id="speed">speed</p>
+    <h3>Heading</h3>
+    <p id="heading">speed</p>
+    <h3>accuracity</h3>
+    <p id="acc">acc</p>
+    <h3>Altitude</h3>
+    <p id="altitude">altitude</p>
+    <h3>Info</h3>
+    <p id="info">info</p>
+  </div>
+ 
+  <script src="gps.js"></script>    
+  <script src="position.js"></script>
+  <script>
+    findLocation(resultfunc);
+  </script>
+    <script>
+      if('serviceWorkerxxx' in navigator) {
+        console.log("Register service worker");
+        navigator.serviceWorker.register('/Speedo/sw.js', { scope: '/Speedo' });
+      }
+      </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+    "lang": "da-DK",
+    "name": "Speedometer",
+    "short_name": "Speedo",
+    "description": "A GPS based spedometer",
+    "start_url": "/Speedo/index.html",
+    "background_color": "#2f3d58",
+    "theme_color": "#2f3d58",
+    "orientation": "any",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "pic/gps.png",
+            "sizes": "512x512"
+        }
+    ]
+}

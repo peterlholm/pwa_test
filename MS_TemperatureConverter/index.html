@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="shortcut icon" href="https://c.s-microsoft.com/favicon.ico?v2" />
+    <link rel="stylesheet" href="converter.css">
     <title>Temperature converter</title>
     <link rel="manifest" href="/manifest.json">
   </head>
@@ -26,5 +27,12 @@
       </select>
       <output name="output-temp" id="output-temp" for="input-temp input-unit output-unit">68 F</output>
     </form>
+    <script src="converter.js"></script>
+    <script>
+      if('serviceWorker' in navigator) {
+        console.log("Register service worker");
+        navigator.serviceWorker.register('/sw.js', { scope: '/' });
+      }
+      </script>
   </body>
 </html>
